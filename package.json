@@ -1,7 +1,7 @@
 {
-  "name": "react-twitter-auth",
-  "version": "0.0.13",
-  "description": "A Twitter loging component",
+  "name": "@failbetter/react-twitter-auth",
+  "version": "0.0.14",
+  "description": "A Twitter login component",
   "scripts": {
     "build:develop": "cross-env NODE_ENV=development webpack src/index.js lib/react-twitter-auth-component.js",
     "build:production": "cross-env NODE_ENV=production webpack src/index.js lib/react-twitter-auth-component.min.js",
@@ -14,7 +14,7 @@
   "main": "lib/react-twitter-auth-component.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GenFirst/react-twitter-auth.git"
+    "url": "git+https://github.com/failbetter-games/react-twitter-auth.git"
   },
   "keywords": [
     "React",
@@ -26,7 +26,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GenFirst/react-twitter-login/issues"
+    "url": "https://github.com/failbetter-games/react-twitter-login/issues"
   },
   "peerDependencies": {
     "react": "^15.5.0",
