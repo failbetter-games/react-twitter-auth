@@ -100,6 +100,9 @@ class TwitterLogin extends Component {
         oauth_verifier: oAuthVerifier,
         oauth_token: oauthToken,
       }),
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
     }).then(response => {
       this.props.onSuccess(response);
     }).catch(error => {
