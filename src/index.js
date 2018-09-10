@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'whatwg-fetch'
 import 'url-search-params-polyfill';
-import  TwitterIcon from 'react-icons/lib/fa/twitter';
+import TwitterIcon from 'react-icons/lib/fa/twitter';
 
 
 class TwitterLogin extends Component {
@@ -45,10 +45,10 @@ class TwitterLogin extends Component {
   openPopup() {
     const w = this.props.dialogWidth;
     const h = this.props.dialogHeight;
-    const left = (screen.width/2)-(w/2);
-    const top = (screen.height/2)-(h/2);
+    const left = (screen.width / 2) - (w / 2);
+    const top = (screen.height / 2) - (h / 2);
 
-    return window.open('', '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+    return window.open('', '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
   }
 
   polling(popup) {
@@ -65,7 +65,7 @@ class TwitterLogin extends Component {
 
       try {
         if (!popup.location.hostname.includes('api.twitter.com') &&
-              !popup.location.hostname == '') {
+          !popup.location.hostname == '') {
           if (popup.location.search) {
             const query = new URLSearchParams(popup.location.search);
 
@@ -93,10 +93,13 @@ class TwitterLogin extends Component {
   }
 
   getOauthToken(oAuthVerifier, oauthToken) {
-    return window.fetch(`${this.props.loginUrl}?oauth_verifier=${oAuthVerifier}&oauth_token=${oauthToken}`, {
+    return window.fetch(`${this.props.loginUrl}`, {
       method: 'POST',
       credentials: this.props.credentials,
-      headers: this.getHeaders()
+      body: {
+        oauth_verifier: oAuthVerifier,
+        oauth_token: oauthToken,
+      },
     }).then(response => {
       this.props.onSuccess(response);
     }).catch(error => {
@@ -105,7 +108,7 @@ class TwitterLogin extends Component {
   }
 
   getDefaultButtonContent() {
-    const defaultIcon = this.props.showIcon? <TwitterIcon color='#00aced' size={25}/> : null;
+    const defaultIcon = this.props.showIcon ? <TwitterIcon color='#00aced' size={25} /> : null;
 
     return (
       <span>
