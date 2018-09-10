@@ -1,6 +1,6 @@
 {
   "name": "@failbetter/react-twitter-auth",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A Twitter login component",
   "scripts": {
     "build:develop": "cross-env NODE_ENV=development webpack src/index.js lib/react-twitter-auth-component.js",
