@@ -96,10 +96,10 @@ class TwitterLogin extends Component {
     return window.fetch(`${this.props.loginUrl}`, {
       method: 'POST',
       credentials: this.props.credentials,
-      body: {
+      body: JSON.stringify({
         oauth_verifier: oAuthVerifier,
         oauth_token: oauthToken,
-      },
+      }),
     }).then(response => {
       this.props.onSuccess(response);
     }).catch(error => {
